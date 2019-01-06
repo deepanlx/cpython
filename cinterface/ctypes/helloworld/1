@@ -1,0 +1,6 @@
+from ctypes import *
+
+load_c = CDLL("./helloworld.so")
+
+output = helloworld.hello("Global Services")
+print output

@@ -1,0 +1,2 @@
+gcc -shared -Wl,-soname,helloworld -o helloworld.so -fPIC helloworld.c
+gcc -fpic --shared $(python-config --includes) helloworld.c -o helloworld.so
