@@ -1,16 +1,7 @@
-from py_factorial import py_factorial
-from factorial import factorial
-import time
+import timeit
 
-start = time.time()
-py_factorial(50)
-end = time.time()
-result = end - start
+python_code = timeit.timeit('''py_factorial.py_factorial(50)''',setup='import py_factorial',number=100)
+cython_code = timeit.timeit('''factorial.factorial(50)''',setup='import factorial', number=100)
 
-print(result)
-
-start = time.time()
-factorial(50)
-end = time.time()
-result = end - start
-print(result)
+print(cython_code, python_code)
+print('Cython is {}x faster'.format(cython_code*100/python_code))
